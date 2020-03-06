@@ -1,0 +1,144 @@
+\documentclass{template/socthesis}
+
+\usepackage{subcaption} 
+\usepackage{amsmath} 
+\usepackage{enumitem} 
+\usepackage{hyperref} % reference
+\usepackage{gensymb} % balíček symbolů
+\usepackage{booktabs}
+
+\usepackage[toc,page]{appendix}
+\usepackage{color} % balíček pro obarvování textů
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
+\usepackage{listings} % balíček pro formátování zdrojových kódů 
+\usepackage[author=,status=final]{fixme} % vkládání poznámek  
+% dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
+\usepackage{multirow}
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\addbibresource{text.bib} % soubor s bibliografií
+\nocite{*}
+
+\titlecz{Automatický skleník} % český název práce
+\titleen{Automatic greenhouse} % anglický název práce
+\author{Petr Štourač} % jméno a příjmení autora
+\field{7} % obor (pouze číslo, zbytek vysází šablona - číslo oboru viz http://www.soc.cz/obory-soc/)
+\school{Střední průmyslová škola a~Vyšší odborná škola Brno, Sokolská, příspěvková organizace} % celý název školy
+\mentor{Mgr. Miroslav Burda} % jméno a příjmení školitele
+\mentorstatement{Mgr. Miroslava Burdy} % jméno a příjmení ve druhém pádě 
+
+% Změňte, pokud se liší
+%\region{Jihomoravský} % kraj
+\placefooter{Brno 2020} % místo a rok
+
+% hinty k používání balíčků hyperref, url, hyperlink a hypertarget
+% \usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+% \hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu 
+
+\begin{document} % konec preambule dokumentu
+
+\maketitle % vysází titulky
+
+\makecopyrightstatement{V~Brně} % místo
+
+% poděkování
+\makethanks{Děkuji svému školiteli Mgr. Miroslavu Burdovi za obětavou pomoc, podnětné připomínky a~hlavně nekonečnou trpělivost, kterou mi během práce poskytoval.}
+
+\pagestyle{empty}
+
+\section*{Anotace}
+\color{mygreen}
+Anotace má za úkol stručně popsat cíle práce a velmi stručný úvod k tématu. 
+Většinou bývá použit první odstavec úvodu.
+\color{black}
+
+Zahradničení je dnes naprosto běžnou zájmovou činností. Mnoho lidí mající takovou zálibu je ovšem velmi časově vytížených. Kromě práce se musí starat mnohdy i o~rodinu a~na péči o~rostliny jim často jednoduše nezbývá čas. Jedním z~těchto lidí je i můj táta, který mě inspiroval k~vytvoření PROTOPlantu -- systému pro snadnou a~levnou automatizaci skleníku. 
+
+Cílem práce je vytvořit univerzální a~dostupný systém pro automatizaci skleníku, který by usnadnil péči o~rostliny časově vytíženým lidem. 
+
+\subsection*{Klíčová slova}
+\color{mygreen}
+Klíčová slova.
+Snažte se najít alespoň 5, ideálně i více klíčových slov, která jednoduše vystihují vaši práci.
+\color{black}
+
+automatizace skleníku, ESP32, PROTOPlant, automatizace, open-source hardware, open-source software
+
+\newpage % pokud se práce vleze na jednu stránku, tento rádek zakomentuj
+
+\vspace{20mm}
+
+\section*{Annotation}
+\color{mygreen}
+Zde přijde anglický překlad anotace.
+\color{black}
+
+Gardening is a~very common hobby today. However, many people who likes this activity doesn't have enough time for it. 
+Beside work, they have to take care of their families and after this, they don't have any time to take care of plants. 
+My dad is exactly this kind of man. 
+And that inspired me to create PROTOPlant -- system for easy and cheap greenhouse automation.
+
+Goal of this thesis is to create universal and available system for greenhouse automation, that will make it easier for these people to take care of their plants.
+
+\subsection*{Keywords}
+\color{mygreen}
+Klíčová slova - jejich překlad do angličtiny.
+\color{black}
+
+greenhouse automation, ESP32, PROTOPlant, automation, open-source hardware, open-source software
+
+\newpage
+\pagestyle{plain}
+
+\tableofcontents % vysází obsah
+
+%%% Začátek práce
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\newpage
+
+% zde můžeš s pomocí příkazu \input{cesta k souboru} vložit soubory; doporučuji každou větší kapitolu dát do samostatného souboru pro větší přehlednost
+
+% Úvod práce
+\input{CHAPTERS/UVOD.tex}
+
+% Motivace
+\input{CHAPTERS/KAPITOLA1.tex}
+
+% Konkurence
+\input{CHAPTERS/KAPITOLA2.tex}
+
+% Zaver prace
+\input{CHAPTERS/ZAVER.tex}
+\newpage
+
+\appendix
+\addcontentsline{toc}{chapter}{Přílohy}
+% Tistene spoje a elektronika
+\input{CHAPTERS/ELECTRONICS_and_PCBs.tex}
+
+% Podrobny popis softwaru
+\input{CHAPTERS/SOFTWARE.tex}
+
+% Prilohy
+\input{CHAPTERS/PRILOHY.tex}
+
+\printbibliography[title=Literatura]
+\addcontentsline{toc}{chapter}{Literatura}
+
+\listoffigures
+\addcontentsline{toc}{section}{Seznam obrázků}
+
+\listoftables
+\addcontentsline{toc}{section}{Seznam tabulek}
+
+\end{document}
